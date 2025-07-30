@@ -56,8 +56,9 @@ def load_company_details(startup):
        
     col1, = st.columns(1)
     with col1:
-        st.metric('Location', Location)
-    
+        st.markdown("### Location")
+        st.metric(label="",value=Location)
+        
     st.subheader('Industry details')
     industry_details_df=df[df['startup_cleaned']== startup].groupby('vertical')['city'].unique().reset_index()
     st.dataframe(industry_details_df)
